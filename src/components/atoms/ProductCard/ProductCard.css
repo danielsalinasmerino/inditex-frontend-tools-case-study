@@ -1,0 +1,17 @@
+.productCard {
+  width: 176px;
+  border: 1px solid #f2f2f2;
+}
+
+.productCard img {
+  height: 256px;
+  width: 100%;
+}
+
+.productCardInfo {
+  padding: 4px;
+}
+
+.productCardInfo span {
+  font-size: 12px;
+}
