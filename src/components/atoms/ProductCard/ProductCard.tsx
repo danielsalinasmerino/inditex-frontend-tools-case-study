@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Product } from "../../../models/products";
 import { formatPriceToPriceWithCurrency } from "../../../utils/currencies";
 import "./ProductCard.css";
