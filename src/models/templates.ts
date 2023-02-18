@@ -1,9 +1,9 @@
 export type TemplateId = string;
 
 export enum TempleteAlignment {
-  LEFT = "LEFT",
-  CENTER = "CENTER",
-  RIGHT = "RIGHT",
+  LEFT = "left",
+  CENTER = "center",
+  RIGHT = "right",
 }
 
 export type Template = {
