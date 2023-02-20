@@ -31,11 +31,35 @@ export const createProductsFixture = (): Products => [
     currency: Currency.EURO,
   },
   {
-    id: "18fa6053-babb-483a-a8e7-490c4c89756d",
-    name: "JEANS REGULAR VINTAGE LIMITED EDITION",
+    id: "18fa6053-bcbb-483a-a8e7-490c4c89756d",
+    name: "JEANS REGULAR VINTAGE",
     image:
       "https://static.zara.net/photos///2023/V/0/2/p/1538/423/400/2/w/1126/1538423400_6_1_1.jpg?ts=1673453338190",
     price: 3595,
+    currency: Currency.EURO,
+  },
+  {
+    id: "17df6053-bacb-483a-a8e7-490c4d89756d",
+    name: "JEANS BAGGY FIT",
+    image:
+      "https://static.zara.net/photos///2023/V/0/2/p/1538/485/400/2/w/1126/1538485400_6_1_1.jpg?ts=1676017766008",
+    price: 2995,
+    currency: Currency.EURO,
+  },
+  {
+    id: "08fa6053-dabb-482a-a8e7-490c4c89656d",
+    name: "JEANS WIDE FIT",
+    image:
+      "https://static.zara.net/photos///2023/V/0/2/p/6688/400/407/2/w/1126/6688400407_6_1_1.jpg?ts=1673338741213",
+    price: 3995,
+    currency: Currency.EURO,
+  },
+  {
+    id: "08fa6153-dabb-482a-a8e7-490c4d29656e",
+    name: "JEANS SKINNY ROTOS",
+    image:
+      "https://static.zara.net/photos///2023/V/0/2/p/5585/306/401/2/w/1126/5585306401_6_1_1.jpg?ts=1673341193432",
+    price: 3995,
     currency: Currency.EURO,
   },
 ];

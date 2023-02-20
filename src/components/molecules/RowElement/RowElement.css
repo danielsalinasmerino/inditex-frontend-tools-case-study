@@ -1,6 +1,7 @@
 .rowElement {
   width: "100%";
   min-width: 256px;
+  cursor: grab;
 }
 
 .rowElement .header {
@@ -15,6 +16,9 @@
   padding: 2px 16px;
   font-weight: bold;
   font-size: 20px;
+  min-width: 256px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .header .buttonsContainer {
@@ -29,4 +33,5 @@
   flex-direction: row;
   gap: 16px;
   flex-wrap: wrap;
+  min-height: 334px;
 }

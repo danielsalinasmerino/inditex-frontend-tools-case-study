@@ -1,19 +1,18 @@
-import React from "react";
-import { RowElement } from "./components/molecules/RowElement";
-import { Row } from "./models/rows";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { CaseStudy } from "./components/pages/CaseStudy";
+import { createDependenciesApp } from "./context/DependencyContainer/createDependenciesApp";
+import { DependencyContainerContext } from "./context/DependencyContainer/DependencyContainer";
 
 function App() {
-  const row: Row = {
-    id: "",
-    productIds: [],
-    templateId: "",
-    position: 1,
-  };
+  const queryClient = new QueryClient();
+  const dependencies = createDependenciesApp();
 
   return (
-    <div style={{ padding: 32 }}>
-      <RowElement row={row} />
-    </div>
+    <DependencyContainerContext.Provider value={dependencies}>
+      <QueryClientProvider client={queryClient}>
+        <CaseStudy />
+      </QueryClientProvider>
+    </DependencyContainerContext.Provider>
   );
 }
 
