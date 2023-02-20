@@ -6,8 +6,7 @@ export type RowId = string;
 export type Row = {
   id: RowId;
   productIds: ProductIds;
-  templateId: TemplateId;
-  position: number;
+  templateId?: TemplateId;
 };
 
 export type Rows = Row[];

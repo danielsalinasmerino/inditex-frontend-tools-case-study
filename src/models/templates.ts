@@ -11,3 +11,5 @@ export type Template = {
   name: string;
   alignment: TempleteAlignment;
 };
+
+export type Templates = Template[];
