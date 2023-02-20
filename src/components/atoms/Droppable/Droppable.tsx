@@ -7,17 +7,9 @@ type DroppableProps = {
 };
 
 export const Droppable: FC<DroppableProps> = ({ children, droppableId }) => {
-  const { isOver, setNodeRef } = useDroppable({
+  const { setNodeRef } = useDroppable({
     id: droppableId,
   });
 
-  const style = {
-    color: isOver ? "green" : undefined,
-  };
-
-  return (
-    <div ref={setNodeRef} style={style}>
-      {children}
-    </div>
-  );
+  return <div ref={setNodeRef}>{children}</div>;
 };
