@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Product } from "../../../models/products";
 import { formatPriceToPriceWithCurrency } from "../../../utils/currencies";
+import { Draggable } from "../Draggable";
 import "./ProductCard.css";
 
 export type ProductCardProps = {
@@ -10,7 +11,7 @@ export type ProductCardProps = {
 const ALT_PRODUCT_CARD_IMAGE_TEXT = "Product Image";
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { name, image, price, currency } = product;
+  const { id, name, image, price, currency } = product;
 
   const productInfo = `${name} ${formatPriceToPriceWithCurrency(
     price,
@@ -18,11 +19,13 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   )}`;
 
   return (
-    <div className="productCard">
-      <img src={image} alt={ALT_PRODUCT_CARD_IMAGE_TEXT} />
-      <div className="productCardInfo">
-        <span>{productInfo}</span>
+    <Draggable draggableId={id}>
+      <div className="productCard">
+        <img src={image} alt={ALT_PRODUCT_CARD_IMAGE_TEXT} />
+        <div className="productCardInfo">
+          <span>{productInfo}</span>
+        </div>
       </div>
-    </div>
+    </Draggable>
   );
 };
