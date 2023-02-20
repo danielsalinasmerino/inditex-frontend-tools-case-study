@@ -17,7 +17,7 @@ export const createTemplatesFixture = (): Templates => [
   },
   {
     id: "eb9c6ec3-f38a-4bf1-8aab-408773382645",
-    name: "Alieado al centro",
+    name: "Alineado al centro",
     alignment: TempleteAlignment.CENTER,
   },
   {
