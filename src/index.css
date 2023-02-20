@@ -81,3 +81,7 @@ ul {
 li {
   list-style-type: none;
 }
+
+select:focus {
+  outline:none;
+}

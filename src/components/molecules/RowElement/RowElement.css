@@ -1,7 +1,8 @@
 .rowElement {
   width: "100%";
-  min-width: 256px;
+  min-width: 360px;
   cursor: grab;
+  margin-bottom: 24px;
 }
 
 .rowElement .header {
@@ -13,17 +14,23 @@
 
 .header .title {
   background-color: black;
-  padding: 2px 16px;
+  padding: 8px 16px;
   font-weight: bold;
   font-size: 20px;
   min-width: 256px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
+  color: white;
+  border: none;
 }
 
 .header .buttonsContainer {
   background-color: black;
-  padding: 2px 16px;
+  padding: 8px 16px;
+}
+
+.header button {
+  cursor: pointer;
 }
 
 .rowElement .content {

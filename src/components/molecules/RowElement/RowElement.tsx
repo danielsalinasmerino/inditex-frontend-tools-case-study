@@ -52,8 +52,6 @@ export const RowElement: FC<RowElementProps> = ({
     onRemoveRow(rowId);
   }
 
-  const templateName = template ? template.name : NO_TEMPLATE;
-
   const templateAlignment = template ? template.alignment : "space-around";
 
   const contentStyle: React.CSSProperties = {
@@ -65,19 +63,19 @@ export const RowElement: FC<RowElementProps> = ({
       <Draggable draggableId={rowId}>
         <>
           <div className="header">
-            <div className="title">{templateName}</div>
+            <select
+              className="title"
+              aria-label="Select template"
+              onChange={handleTemplateChange}
+            >
+              <option value="">{NO_TEMPLATE}</option>
+              {templates?.map((template) => (
+                <option key={template.id} value={template.id}>
+                  {template.name}
+                </option>
+              ))}
+            </select>
             <div className="buttonsContainer">
-              <select
-                aria-label="Select template"
-                onChange={handleTemplateChange}
-              >
-                <option value="">{NO_TEMPLATE}</option>
-                {templates?.map((template) => (
-                  <option key={template.id} value={template.id}>
-                    {template.name}
-                  </option>
-                ))}
-              </select>
               <button onMouseDown={handleOnRemoveRow}>Click!</button>
             </div>
           </div>
