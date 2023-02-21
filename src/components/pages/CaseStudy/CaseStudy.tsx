@@ -9,11 +9,25 @@ import { Button } from "../../atoms/Button";
 import { traductions } from "../../../i18n/traductions";
 import { useCreateGrid } from "../../../repositories/grids/GridsRepositoryHooks";
 import { ToastContainer, toast } from "react-toastify";
+import Modal from "react-modal";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./CaseStudy.css";
 
 export type CaseStudyProps = {};
+
+const MODAL_STYLES: Modal.Styles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    width: "66%",
+    maxHeight: "80%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 export const CaseStudy: FC<CaseStudyProps> = () => {
   const { products, isLoading: isLoadingProducts } = useFetchProducts();
@@ -21,6 +35,7 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
 
   const [grid, setGrid] = useState<Grid | undefined>(undefined);
   const [saveGridButtonIsEnabled, setSaveGridButtonIsEnabled] = useState(false);
+  const [informationModalIsOpen, setInformationModalIsOpen] = useState(false);
 
   useEffect(() => {
     if (products.length) {
@@ -34,7 +49,11 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
   }, [grid]);
 
   function handleShowInfo() {
-    console.log("Show info");
+    setInformationModalIsOpen(true);
+  }
+
+  function handleCloseModal() {
+    setInformationModalIsOpen(false);
   }
 
   function handleSaveGrid() {
@@ -55,6 +74,31 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
   return (
     <div className="container">
       <ToastContainer />
+      <Modal
+        isOpen={informationModalIsOpen}
+        onRequestClose={handleCloseModal}
+        style={MODAL_STYLES}
+      >
+        <div className="modal-content" onClick={handleCloseModal}>
+          <div className="title">{traductions.modal.title_1}</div>
+          <div>
+            {traductions.modal.paragraph_1}
+            <br />
+            <br />
+            {traductions.modal.paragraph_2}
+            <br />
+            <br />
+            {traductions.modal.paragraph_3}
+          </div>
+          <div className="title">{traductions.modal.title_2}</div>
+          <div>{traductions.modal.paragraph_4}</div>
+          <div className="title">{traductions.modal.title_3}</div>
+          <div>{traductions.modal.paragraph_5}</div>
+          <div style={{ fontWeight: "bold" }}>
+            {traductions.modal.paragraph_6}
+          </div>
+        </div>
+      </Modal>
       <img
         className="logo"
         src={ZARA_LOGO}

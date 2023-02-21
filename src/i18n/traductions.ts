@@ -8,4 +8,15 @@ export const traductions = {
   save_products_grid: "Guardar parrilla de productos",
   toast_success_saving_grid: "Parrilla guardada con éxito",
   toast_error_saving_grid: "Error al intentar guardar la parrilla",
+  modal: {
+    title_1: `Funcionamiento general`,
+    paragraph_1: `La aplicación carga los productos y los agrupa directamente en filas con el máximo de elementos posibles por fila (3), generando una parrilla. Por defecto, no selecciona para las filas ninguna plantilla.`,
+    paragraph_2: `La plantilla se podrá guardar sólo si todas las filas tienen al menos un producto y si cada fila tiene asociada una plantilla. En caso contrario, esta funcionalidad estará deshabilitada.`,
+    paragraph_3: `Las filas se podrán borrar sólo si no tienen ningún elemento (productos). En caso contrario, esta funcionalidad estará deshabilitada.`,
+    title_2: `Reordenamiento`,
+    paragraph_4: `Es suficiente con arrastrar productos o filas, y es bastante intuitivo. Si se intenta arrastrar un cuarto producto a una fila, la operación se cancela.`,
+    title_3: `Zoom`,
+    paragraph_5: `Se puede hacer zoom sobre la zona de la parrilla. Hay que mantener presionada la tecla de command o control y usar el ratón o el pad. Si se hace muy pequeño, se puede ir haciendo doble click para agrandar poco a poco la parrilla (o de nuevo, presionar la tecla correspondiente y usar el ratón o pad).`,
+    paragraph_6: `Este modal se puede consultar tantas veces como se quiera, para cerrarlo es suficiente con pulsar sobre él mismo o fuera de él.`,
+  },
 };
