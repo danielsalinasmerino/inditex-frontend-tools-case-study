@@ -8,11 +8,13 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "./CaseStudy.css";
 import { Button } from "../../atoms/Button";
 import { traductions } from "../../../i18n/traductions";
+import { useCreateGrid } from "../../../repositories/grids/GridsRepositoryHooks";
 
 export type CaseStudyProps = {};
 
 export const CaseStudy: FC<CaseStudyProps> = () => {
   const { products, isLoading: isLoadingProducts } = useFetchProducts();
+  const { createGrid } = useCreateGrid();
 
   const [grid, setGrid] = useState<Grid | undefined>(undefined);
   const [saveGridButtonIsEnabled, setSaveGridButtonIsEnabled] = useState(false);
@@ -28,8 +30,16 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
     setSaveGridButtonIsEnabled(gridIsReadyToSave(grid));
   }, [grid]);
 
+  function handleShowInfo() {
+    console.log("Show info");
+  }
+
   function handleSaveGrid() {
-    console.log("save");
+    if (grid) {
+      createGrid({ gridToCreate: grid })
+        .then(() => console.log("Grid created correctly"))
+        .catch(() => console.log("Error creating the grid"));
+    }
   }
 
   const transformComponentStyles: React.CSSProperties = {
@@ -50,7 +60,7 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
         <div className="grid-title">{traductions.products_grid}</div>
         <div>
           <Button
-            onClick={handleSaveGrid}
+            onClick={handleShowInfo}
             label={traductions.info}
             style={{ marginRight: 24 }}
           />
