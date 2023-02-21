@@ -12,6 +12,7 @@ import {
   rectIntersection,
   useSensor,
   useSensors,
+  DragStartEvent,
 } from "@dnd-kit/core";
 import {
   Dispatch,
@@ -79,12 +80,10 @@ export const GridElement: FC<GridProps> = ({
         });
       }
 
-      // Start by finding any intersecting droppable
       const pointerIntersections = pointerWithin(args);
       const intersections =
         pointerIntersections.length > 0
-          ? // If there are droppables intersecting with the pointer, return those
-            pointerIntersections
+          ? pointerIntersections
           : rectIntersection(args);
       let overId = getFirstCollision(intersections, "id");
 
@@ -109,15 +108,10 @@ export const GridElement: FC<GridProps> = ({
         return [{ id: overId }];
       }
 
-      // When a draggable item moves to a new container, the layout may shift
-      // and the `overId` may become `null`. We manually set the cached `lastOverId`
-      // to the id of the draggable item that was moved to the new container, otherwise
-      // the previous `overId` will be returned which can cause items to incorrectly shift positions
       if (recentlyMovedToNewContainer.current) {
         lastOverId.current = activeId;
       }
 
-      // If no droppable is matched, return the last match
       return lastOverId.current ? [{ id: lastOverId.current }] : [];
     },
     [activeId, items]
@@ -133,7 +127,7 @@ export const GridElement: FC<GridProps> = ({
     );
   };
 
-  const onDragOver = ({ active, over }: DragOverEvent) => {
+  function handleDragOver({ active, over }: DragOverEvent) {
     const overId = over?.id;
 
     if (overId == null || active.id in items) {
@@ -191,18 +185,18 @@ export const GridElement: FC<GridProps> = ({
         };
       });
     }
-  };
+  }
 
-  const onDragCancel = () => {
+  function handleDragCancel() {
     if (clonedItems) {
       setItems(clonedItems);
     }
 
     setActiveId(null);
     setClonedItems(null);
-  };
+  }
 
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
+  function handleDragEnd({ active, over }: DragEndEvent) {
     if (active.id in items && over?.id) {
       setContainers((containers) => {
         const activeIndex = containers.indexOf(active.id);
@@ -230,12 +224,7 @@ export const GridElement: FC<GridProps> = ({
 
     if (overContainer) {
       if (items[overContainer].length >= 4) {
-        /* setToastMessage({
-          title: "Error while moving the element",
-          description: "You can't put more than 3 products inside a row",
-          variant: "error",
-        }); */
-        return onDragCancel();
+        return handleDragCancel();
       }
 
       const activeIndex = items[activeContainer].indexOf(active.id);
@@ -255,9 +244,9 @@ export const GridElement: FC<GridProps> = ({
     }
 
     setActiveId(null);
-  };
+  }
 
-  const handleAddRow = () => {
+  function handleAddRow() {
     const newContainerId = generateUniqueIdentifier();
 
     setItems({
@@ -265,16 +254,9 @@ export const GridElement: FC<GridProps> = ({
       [newContainerId]: [],
     });
     setContainers((containers) => [...containers, newContainerId]);
-  };
+  }
 
-  const handleRemoveRow = (containerId: UniqueIdentifier) => {
-    /* if (items[containerId].length > 0)
-      return setToastMessage({
-        title: "Error while deleting the row",
-        description: "You can't delete rows with products inside it",
-        variant: "error",
-      }); */
-
+  function handleRemoveRow(containerId: UniqueIdentifier) {
     setContainers((containers) =>
       containers.filter((id) => id !== containerId)
     );
@@ -286,7 +268,12 @@ export const GridElement: FC<GridProps> = ({
       }, {});
 
     setItems(newItems);
-  };
+  }
+
+  function handleDragStart(event: DragStartEvent) {
+    setActiveId(event.active.id);
+    setClonedItems(items);
+  }
 
   const handleTemplateChange = (containerId: string, templateId: string) => {
     const rows = grid.rows.map((row) => {
@@ -314,13 +301,10 @@ export const GridElement: FC<GridProps> = ({
       <DndContext
         sensors={sensors}
         collisionDetection={collisionDetectionStrategy}
-        onDragOver={onDragOver}
-        onDragEnd={onDragEnd}
-        onDragStart={({ active }) => {
-          setActiveId(active.id);
-          setClonedItems(items);
-        }}
-        onDragCancel={onDragCancel}
+        onDragOver={handleDragOver}
+        onDragEnd={handleDragEnd}
+        onDragStart={handleDragStart}
+        onDragCancel={handleDragCancel}
       >
         <SortableContext
           items={containers}
