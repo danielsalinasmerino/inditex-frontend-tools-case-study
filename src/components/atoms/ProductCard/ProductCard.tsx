@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { traductions } from "../../../i18n/traductions";
 import { Product } from "../../../models/products";
 import { formatPriceToPriceWithCurrency } from "../../../utils/currencies";
 import { Draggable } from "../Draggable";
@@ -8,15 +9,13 @@ export type ProductCardProps = {
   product: Product;
 };
 
-const ALT_PRODUCT_CARD_IMAGE_TEXT = "Product Image";
-
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const { id, name, image, price, currency } = product;
 
   return (
     <Draggable draggableId={id}>
       <div className="productCard">
-        <img src={image} alt={ALT_PRODUCT_CARD_IMAGE_TEXT} />
+        <img src={image} alt={traductions.alt_product_card_image_text} />
         <div className="productCardInfo">
           <span>{name}</span>
           <br />

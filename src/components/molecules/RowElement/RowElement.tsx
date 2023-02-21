@@ -4,6 +4,7 @@ import {
   SortableContext,
 } from "@dnd-kit/sortable";
 import { FC, useState } from "react";
+import { traductions } from "../../../i18n/traductions";
 import { Product, Products } from "../../../models/products";
 import { Row } from "../../../models/rows";
 import { Template } from "../../../models/templates";
@@ -15,9 +16,6 @@ import { Draggable } from "../../atoms/Draggable";
 import { Droppable } from "../../atoms/Droppable";
 import { ProductCard } from "../../atoms/ProductCard";
 import "./RowElement.css";
-
-// TODO: Take this to a "traductions" file
-const NO_TEMPLATE = "Sin plantilla";
 
 export type RowElementProps = {
   row: Row;
@@ -74,7 +72,7 @@ export const RowElement: FC<RowElementProps> = ({
               aria-label="Select template"
               onChange={handleTemplateChange}
             >
-              <option value="">{NO_TEMPLATE}</option>
+              <option value="">{traductions.no_template}</option>
               {templates?.map((template) => (
                 <option key={template.id} value={template.id}>
                   {template.name}

@@ -36,6 +36,7 @@ import { RowElement } from "../../molecules/RowElement";
 import { generateUniqueIdentifier } from "../../../utils/uuids";
 import { Button } from "../../atoms/Button";
 import "./GridElement.css";
+import { traductions } from "../../../i18n/traductions";
 
 export type GridProps = {
   grid: Grid;
@@ -348,7 +349,7 @@ export const GridElement: FC<GridProps> = ({
             ))}
           </ul>
 
-          <Button onClick={handleAddRow} label="Añadir fila de productos" />
+          <Button onClick={handleAddRow} label={traductions.add_products_row} />
         </SortableContext>
       </DndContext>
     </div>

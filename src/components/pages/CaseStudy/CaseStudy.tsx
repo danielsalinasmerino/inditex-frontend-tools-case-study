@@ -7,10 +7,9 @@ import ZARA_LOGO from "../../../assets/png/logo.png";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "./CaseStudy.css";
 import { Button } from "../../atoms/Button";
+import { traductions } from "../../../i18n/traductions";
 
 export type CaseStudyProps = {};
-
-const ZARA_LOGO_ALT_TEXT = "Zara Logo";
 
 export const CaseStudy: FC<CaseStudyProps> = () => {
   const { products, isLoading: isLoadingProducts } = useFetchProducts();
@@ -42,19 +41,22 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
 
   return (
     <div className="container">
-      <img className="logo" src={ZARA_LOGO} alt={ZARA_LOGO_ALT_TEXT} />
+      <img
+        className="logo"
+        src={ZARA_LOGO}
+        alt={traductions.alt_logo_image_text}
+      />
       <div className="main-header">
-        <div className="grid-title">Parrilla de productos</div>
+        <div className="grid-title">{traductions.products_grid}</div>
         <div>
           <Button
             onClick={handleSaveGrid}
-            label="Información"
-            disabled={!saveGridButtonIsEnabled}
+            label={traductions.info}
             style={{ marginRight: 24 }}
           />
           <Button
             onClick={handleSaveGrid}
-            label="Guardar parrilla de productos"
+            label={traductions.save_products_grid}
             disabled={!saveGridButtonIsEnabled}
           />
         </div>
