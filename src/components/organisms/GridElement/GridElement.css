@@ -1,7 +1,12 @@
 .grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .gridList {
   padding: 0px;
+  width: 100%;
 }
