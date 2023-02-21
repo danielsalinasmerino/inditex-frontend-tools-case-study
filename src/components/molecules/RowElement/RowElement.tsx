@@ -10,6 +10,7 @@ import { Template } from "../../../models/templates";
 import { useFetchTemplates } from "../../../repositories/templates/TemplatesRepositoryHooks";
 import { findProduct } from "../../../utils/products";
 import { findTemplate } from "../../../utils/templates";
+import { Button } from "../../atoms/Button";
 import { Draggable } from "../../atoms/Draggable";
 import { Droppable } from "../../atoms/Droppable";
 import { ProductCard } from "../../atoms/ProductCard";
@@ -58,6 +59,11 @@ export const RowElement: FC<RowElementProps> = ({
     justifyContent: templateAlignment,
   };
 
+  const buttonStyle: React.CSSProperties = {
+    padding: "8px 16px",
+    fontWeight: "bold",
+  };
+
   return (
     <div className="rowElement" key={rowId}>
       <Draggable draggableId={rowId}>
@@ -75,9 +81,11 @@ export const RowElement: FC<RowElementProps> = ({
                 </option>
               ))}
             </select>
-            <div className="buttonsContainer">
-              <button onMouseDown={handleOnRemoveRow}>Click!</button>
-            </div>
+            <Button
+              onClick={handleOnRemoveRow}
+              label="Borrar fila"
+              style={buttonStyle}
+            />
           </div>
           <Droppable droppableId={rowId}>
             <SortableContext

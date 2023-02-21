@@ -13,7 +13,7 @@ export const Draggable: FC<DraggableProps> = ({ children, draggableId }) => {
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    backgroundColor: "white",
+    backgroundColor: "transparent",
     transition,
   };
 

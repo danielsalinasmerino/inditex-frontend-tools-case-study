@@ -1,6 +1,6 @@
 .rowElement {
   width: "100%";
-  min-width: 360px;
+  min-width: 400px;
   cursor: grab;
   margin-bottom: 24px;
 }
@@ -22,11 +22,7 @@
   vertical-align: middle;
   color: white;
   border: none;
-}
-
-.header .buttonsContainer {
-  background-color: black;
-  padding: 8px 16px;
+  cursor: pointer;
 }
 
 .header button {
@@ -41,4 +37,5 @@
   gap: 16px;
   flex-wrap: wrap;
   min-height: 334px;
+  background-color: #f2f2f2;
 }
