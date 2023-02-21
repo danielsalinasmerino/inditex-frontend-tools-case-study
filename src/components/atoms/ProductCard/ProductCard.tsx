@@ -3,6 +3,7 @@ import { traductions } from "../../../i18n/traductions";
 import { Product } from "../../../models/products";
 import { formatPriceToPriceWithCurrency } from "../../../utils/currencies";
 import { Draggable } from "../Draggable";
+
 import "./ProductCard.css";
 
 export type ProductCardProps = {

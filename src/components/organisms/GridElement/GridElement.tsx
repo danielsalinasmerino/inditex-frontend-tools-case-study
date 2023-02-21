@@ -36,8 +36,9 @@ import { Row } from "../../../models/rows";
 import { RowElement } from "../../molecules/RowElement";
 import { generateUniqueIdentifier } from "../../../utils/uuids";
 import { Button } from "../../atoms/Button";
-import "./GridElement.css";
 import { traductions } from "../../../i18n/traductions";
+
+import "./GridElement.css";
 
 export type GridProps = {
   grid: Grid;

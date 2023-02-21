@@ -5,10 +5,11 @@ import { createGridFromProducts, gridIsReadyToSave } from "../../../utils/grid";
 import { GridElement } from "../../organisms/GridElement";
 import ZARA_LOGO from "../../../assets/png/logo.png";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import "./CaseStudy.css";
 import { Button } from "../../atoms/Button";
 import { traductions } from "../../../i18n/traductions";
 import { useCreateGrid } from "../../../repositories/grids/GridsRepositoryHooks";
+
+import "./CaseStudy.css";
 
 export type CaseStudyProps = {};
 

@@ -15,6 +15,7 @@ import { Button } from "../../atoms/Button";
 import { Draggable } from "../../atoms/Draggable";
 import { Droppable } from "../../atoms/Droppable";
 import { ProductCard } from "../../atoms/ProductCard";
+
 import "./RowElement.css";
 
 export type RowElementProps = {
