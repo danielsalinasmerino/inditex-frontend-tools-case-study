@@ -8,12 +8,13 @@ export function createGridFromProducts(products: Products): Grid {
   const grouppedIds: string[][] = [];
   let aux: string[] = [];
 
-  products.map((product) => {
+  products.map((product, index) => {
     aux.push(product.id);
-    if (aux.length === 2) {
+    if (aux.length === 3 || products.length - 1 === index) {
       grouppedIds.push(aux);
       aux = [];
     }
+
     return [];
   });
 
