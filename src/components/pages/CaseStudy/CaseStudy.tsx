@@ -30,6 +30,7 @@ const MODAL_STYLES: Modal.Styles = {
 };
 
 export const CaseStudy: FC<CaseStudyProps> = () => {
+  // We are using a general fetch, but we could also use one declaring exactly the different products IDs
   const { products, isLoading: isLoadingProducts } = useFetchProducts();
   const { createGrid } = useCreateGrid();
 
