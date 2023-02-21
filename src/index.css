@@ -1,4 +1,4 @@
-/* Thanks to: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* CSS Reset changes thanks to: https://www.joshwcomeau.com/css/custom-css-reset/ */
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -69,6 +69,8 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* Own CSS changes to apply to the whole application */
 
 * {
   font-family: Arial, Helvetica, sans-serif;
