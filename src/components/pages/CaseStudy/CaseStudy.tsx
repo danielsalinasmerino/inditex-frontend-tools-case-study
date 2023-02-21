@@ -3,9 +3,12 @@ import { Grid } from "../../../models/grids";
 import { useFetchProducts } from "../../../repositories/products/ProductsRepositoryHooks";
 import { createGridFromProducts } from "../../../utils/grid";
 import { GridElement } from "../../organisms/GridElement";
+import ZARA_LOGO from "../../../assets/png/logo.png";
 import "./CaseStudy.css";
 
 export type CaseStudyProps = {};
+
+const ZARA_LOGO_ALT_TEXT = "Zara Logo";
 
 export const CaseStudy: FC<CaseStudyProps> = () => {
   const { products, isLoading: isLoadingProducts } = useFetchProducts();
@@ -22,7 +25,8 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
   if (isLoadingProducts) return null;
 
   return (
-    <div style={{ padding: 32 }}>
+    <div className="container">
+      <img className="logo" src={ZARA_LOGO} alt={ZARA_LOGO_ALT_TEXT} />
       {grid && (
         <GridElement grid={grid} products={products} onGridChange={setGrid} />
       )}
