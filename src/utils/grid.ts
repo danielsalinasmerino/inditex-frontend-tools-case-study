@@ -43,10 +43,8 @@ export function gridIsReadyToSave(grid?: Grid) {
   if (grid.rows.length < 1) return false;
 
   for (const row of grid.rows) {
-    const productsIdsOfRow = row.productIds;
-    if (productsIdsOfRow.length === 0) {
-      return false;
-    }
+    const { templateId, productIds } = row;
+    if (!productIds.length || !templateId) return false;
   }
 
   return true;

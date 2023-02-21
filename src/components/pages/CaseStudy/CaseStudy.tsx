@@ -8,6 +8,8 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { Button } from "../../atoms/Button";
 import { traductions } from "../../../i18n/traductions";
 import { useCreateGrid } from "../../../repositories/grids/GridsRepositoryHooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./CaseStudy.css";
 
@@ -38,8 +40,8 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
   function handleSaveGrid() {
     if (grid) {
       createGrid({ gridToCreate: grid })
-        .then(() => console.log("Grid created correctly"))
-        .catch(() => console.log("Error creating the grid"));
+        .then(() => toast.success(traductions.toast_success_saving_grid))
+        .catch(() => toast.error(traductions.toast_error_saving_grid));
     }
   }
 
@@ -52,6 +54,7 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
 
   return (
     <div className="container">
+      <ToastContainer />
       <img
         className="logo"
         src={ZARA_LOGO}

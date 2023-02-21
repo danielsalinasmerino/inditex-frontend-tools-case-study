@@ -6,4 +6,6 @@ export const traductions = {
   products_grid: "Parrilla de productos",
   info: "Información",
   save_products_grid: "Guardar parrilla de productos",
+  toast_success_saving_grid: "Parrilla guardada con éxito",
+  toast_error_saving_grid: "Error al intentar guardar la parrilla",
 };
