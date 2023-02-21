@@ -1,7 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import { Grid } from "../../../models/grids";
 import { useFetchProducts } from "../../../repositories/products/ProductsRepositoryHooks";
-import { createGridFromProducts, gridIsReadyToSave } from "../../../utils/grid";
+import {
+  createGridFromProducts,
+  gridIsReadyToSave,
+} from "../../../utils/grids";
 import { GridElement } from "../../organisms/GridElement";
 import ZARA_LOGO from "../../../assets/png/logo.png";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";

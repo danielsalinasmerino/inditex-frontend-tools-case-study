@@ -31,7 +31,7 @@ import {
 } from "@dnd-kit/sortable";
 import { Grid } from "../../../models/grids";
 import { Products } from "../../../models/products";
-import { getItemsFromRows } from "../../../utils/grid";
+import { getItemsFromRows } from "../../../utils/grids";
 import { Row } from "../../../models/rows";
 import { RowElement } from "../../molecules/RowElement";
 import { generateUniqueIdentifier } from "../../../utils/uuids";
