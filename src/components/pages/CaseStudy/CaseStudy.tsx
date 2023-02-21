@@ -21,7 +21,6 @@ export const CaseStudy: FC<CaseStudyProps> = () => {
   useEffect(() => {
     if (products.length) {
       const gridFromBackEnd = createGridFromProducts(products);
-      console.log(gridFromBackEnd);
       setGrid(gridFromBackEnd);
     }
   }, [products]);
