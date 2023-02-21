@@ -4,13 +4,13 @@ import { Products } from "../models/products";
 import { Rows } from "../models/rows";
 import { generateUniqueIdentifier } from "./uuids";
 
-export const createGridFromProducts = (products: Products): Grid => {
+export function createGridFromProducts(products: Products): Grid {
   const grouppedIds: string[][] = [];
   let aux: string[] = [];
 
-  products.map((product, index) => {
+  products.map((product) => {
     aux.push(product.id);
-    if (aux.length === 3) {
+    if (aux.length === 2) {
       grouppedIds.push(aux);
       aux = [];
     }
@@ -22,12 +22,11 @@ export const createGridFromProducts = (products: Products): Grid => {
     rows: grouppedIds.map((ids) => ({
       id: generateUniqueIdentifier(),
       productIds: ids,
-      templateId: "",
     })),
   };
-};
+}
 
-export const getItemsFromRows = (rows: Rows) => {
+export function getItemsFromRows(rows: Rows) {
   return rows.reduce(
     (acc, value) => ({
       ...acc,
@@ -35,7 +34,7 @@ export const getItemsFromRows = (rows: Rows) => {
     }),
     {} as { [key: UniqueIdentifier]: UniqueIdentifier[] }
   );
-};
+}
 
 export function gridIsReadyToSave(grid?: Grid) {
   if (!grid) return false;
