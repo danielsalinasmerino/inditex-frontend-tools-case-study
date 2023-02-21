@@ -85,6 +85,7 @@ export const RowElement: FC<RowElementProps> = ({
               onClick={handleOnRemoveRow}
               label="Borrar fila"
               style={buttonStyle}
+              disabled={Boolean(products.length)}
             />
           </div>
           <Droppable droppableId={rowId}>

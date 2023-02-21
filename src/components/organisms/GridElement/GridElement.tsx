@@ -348,11 +348,7 @@ export const GridElement: FC<GridProps> = ({
             ))}
           </ul>
 
-          <div>
-            <div>
-              <Button onClick={handleAddRow} label="Añadir fila de productos" />
-            </div>
-          </div>
+          <Button onClick={handleAddRow} label="Añadir fila de productos" />
         </SortableContext>
       </DndContext>
     </div>

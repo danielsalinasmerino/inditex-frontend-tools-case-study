@@ -36,3 +36,18 @@ export const getItemsFromRows = (rows: Rows) => {
     {} as { [key: UniqueIdentifier]: UniqueIdentifier[] }
   );
 };
+
+export function gridIsReadyToSave(grid?: Grid) {
+  if (!grid) return false;
+
+  if (grid.rows.length < 1) return false;
+
+  for (const row of grid.rows) {
+    const productsIdsOfRow = row.productIds;
+    if (productsIdsOfRow.length === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
